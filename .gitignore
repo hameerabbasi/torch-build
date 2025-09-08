@@ -6,3 +6,4 @@
 .pixi
 *.egg-info
 pixi.lock
+/last-used-env

@@ -1,17 +1,17 @@
 [workspace]
 authors = ["Hameer Abbasi <2190658+hameerabbasi@users.noreply.github.com>"]
 channels = ["conda-forge"]
-name = "pytorch-dev"
+name = "pixi-pytorch-dev"
 platforms = ["linux-64", "osx-arm64"]
 version = "0.1.0"
 
-[tasks]
+[feature.core.tasks]
 build-core = { cmd = "./pytorch-build.sh", cwd = "." }
 build-all = { cmd = "./torch-build.sh", cwd = "." }
 update = { cmd = "./torch-update.sh", cwd = "." }
 clone = { cmd = "./torch-clone.sh", cwd = "." }
 
-[activation.env]
+[feature.core.activation.env]
 PYTORCH_BUILD_DIRECTORY = "${PIXI_PROJECT_ROOT}/git"
 PYTORCH_PIXI_BUILD = "1"
 
@@ -74,6 +74,9 @@ parameterized = "*"
 libglib = "*"
 pango = "*"
 pillow = "*"
+
+[feature.core.target.osx-arm64.dependencies]
+compilers = "*"
 
 [feature.core.target.linux-64.dependencies]
 gcc = "13.*"

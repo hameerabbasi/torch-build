@@ -9,7 +9,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 fi
 
 # Compilation type
-export CMAKE_BUILD_TYPE=Release
+export CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE-:Release}
 # CMAKE_BUILD_TYPE=RelWithDebInfo gives you line numbers on gdb,
 # but makes the symbol loading phase in gdb and the linking phase in compilation much slower.
 
