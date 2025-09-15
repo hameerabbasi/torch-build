@@ -23,7 +23,8 @@ python = "3.13.*"
 python-freethreading = "3.13.*"
 
 [dependencies]
-python = "3.9.*"
+python = "3.10.*"
+onnx-ir = "*"
 
 [target.linux-64.dependencies]
 # These three don't have free-threading support
@@ -79,13 +80,13 @@ pillow = "*"
 compilers = "*"
 
 [feature.core.target.linux-64.dependencies]
-gcc = "13.*"
-gxx = "13.*"
+gcc = "14.*"
+gxx = "14.*"
 clang = "*"
 clangxx = "*"
 magma = "*"
 cuda-driver-dev = "*"
-cuda-version = "12.6.*"
+cuda-version = "12.9.*"
 cudnn = "*"
 conda-gcc-specs = "*"
 cuda-libraries-dev = "*"
