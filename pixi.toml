@@ -6,17 +6,19 @@ platforms = ["linux-64", "osx-arm64"]
 version = "0.1.0"
 
 [feature.core.tasks]
-build-core = { cmd = "./pytorch-build.sh", cwd = "." }
-build-all = { cmd = "./torch-build.sh", cwd = "." }
+build-core = { cmd = "./pixi-launch.sh ./pytorch-build.sh", cwd = "." }
+build-all = { cmd = "./pixi-launch.sh ./torch-build.sh", cwd = "." }
 update = { cmd = "./torch-update.sh", cwd = "." }
 clone = { cmd = "./torch-clone.sh", cwd = "." }
+export-env = { cmd = "./torch-env-export.sh", cwd = "." }
+reset-env = { cmd = "rm ./.env", cwd = "." }
 
 [feature.core.activation.env]
 PYTORCH_BUILD_DIRECTORY = "${PIXI_PROJECT_ROOT}/git"
 PYTORCH_PIXI_BUILD = "1"
 
 [activation]
-scripts = ["./torch-common.sh"]
+scripts = ["./torch-pixi-activate.sh"]
 
 [feature.freethreading.dependencies]
 python = "3.13.*"

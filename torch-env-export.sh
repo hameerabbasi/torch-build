@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -e
+
+source ./torch-common.sh
+
+ENV_VARS=()
+
+if [[ "$(uname)" == "Linux" ]]; then
+    ENV_VARS+=(
+        CORES_PER_SOCKET
+        NUMBER_OF_SOCKETS
+        NCORES
+        MAX_JOBS
+    )
+fi
+
+ENV_VARS+=(
+    CMAKE_BUILD_TYPE
+    USE_CUDA
+    TORCH_CUDA_ARCH_LIST
+    USE_PRECOMPILED_HEADERS
+    USE_PER_OPERATOR_HEADERS
+    CCACHE_COMPRESS
+    CCACHE_SLOPPINESS
+    USE_KINETO
+    USE_CUDNN
+    USE_FBGEMM
+    BUILD_TEST
+    BUILD_CAFFE2
+    BUILD_CAFFE2_OPS
+    USE_DISTRIBUTED
+    USE_NCCL
+    USE_GLOO
+    USE_QNNPACK
+    USE_XNNPACK
+    USE_FLASH_ATTENTION
+    USE_MEM_EFF_ATTENTION
+    CMAKE_PREFIX_PATH
+    CUDA_PATH
+    CUDA_HOME
+    CMAKE_CUDA_COMPILER
+    CUDA_INC_PATH
+    CMAKE_C_COMPILER_LAUNCHER
+    CMAKE_CXX_COMPILER_LAUNCHER
+    CMAKE_CUDA_COMPILER_LAUNCHER
+)
+
+rm ./.env && touch .env
+
+for var in ${ENV_VARS[@]}; do
+    echo "$var=\"${!var}\"" >> ./.env
+done
