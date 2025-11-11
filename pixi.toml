@@ -33,6 +33,7 @@ onnx-ir = "*"
 lldb = "*"
 gdb = "*"
 halide-python = "*"
+z3-solver = "*"
 
 [feature.core.dependencies]
 pip = "*"
@@ -99,10 +100,8 @@ cuda-nvml-dev = "*"
 cuda-cupti-dev = "*"
 mkl = "*"
 mkl-include = "*"
+nccl = "*"
 sysroot_linux-64 = ">=2.17"
-
-[feature.core.pypi-dependencies]
-z3-solver = "*"
 
 [environments]
 default = ["default", "core"]

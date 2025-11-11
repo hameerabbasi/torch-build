@@ -20,7 +20,7 @@ else
   export USE_CUDA=${USE_CUDA:-1}
 fi
 
-if [ -z "$TORCH_CUDA_ARCH_LIST" ]; then
+if [[ -n "$TORCH_CUDA_ARCH_LIST" ]]; then
     :
 elif [[ $(hostname) = qgpu* ]]; then
     export TORCH_CUDA_ARCH_LIST="7.5"  # qgpu server
@@ -41,9 +41,7 @@ export USE_FBGEMM=${USE_FBGEMM:-1}                                   # GEMMs
 export BUILD_TEST=${BUILD_TEST:-0}                # C++ tests
 export BUILD_CAFFE2=${BUILD_CAFFE2:-0}                             # caffe2
 export BUILD_CAFFE2_OPS=${BUILD_CAFFE2_OPS:-0}                         # caffe2
-export USE_DISTRIBUTED=${USE_DISTRIBUTED:-0}                          # distributed
-export USE_NCCL=${USE_NCCL:-0}                                 # distributed
-export USE_GLOO=${USE_GLOO:-0}                                 # distributed
+export USE_SYSTEM_NCCL=${USE_SYSTEM_NCCL:-1}
 export USE_QNNPACK=${USE_QNNPACK:-0}                              # quantized
 export USE_XNNPACK=${USE_XNNPACK:-0}                              # quantized
 # Disable these unless you are going to benchmark them
