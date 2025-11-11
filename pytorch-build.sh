@@ -20,4 +20,6 @@ pip uninstall torch -y
 pip install -e . --no-build-isolation -v $@
 
 # comment out if you're developing triton as well
-make triton
+if [[ "$(uname)" != "Darwin" ]]; then
+    make triton
+fi
