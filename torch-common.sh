@@ -40,8 +40,15 @@ export USE_FBGEMM=${USE_FBGEMM:-1}                                   # GEMMs
 # Don't build what we don't need
 export BUILD_TEST=${BUILD_TEST:-0}                # C++ tests
 export BUILD_CAFFE2=${BUILD_CAFFE2:-0}                             # caffe2
-export BUILD_CAFFE2_OPS=${BUILD_CAFFE2_OPS:-0}                         # caffe2
-export USE_SYSTEM_NCCL=${USE_SYSTEM_NCCL:-1}
+export BUILD_CAFFE2_OPS=${BUILD_CAFFE2_OPS:-0}  # caffe2
+
+# distributed
+if [[ "$(uname)" == "Linux" ]]; then
+    export USE_SYSTEM_NCCL=${USE_SYSTEM_NCCL:-1}
+else
+    export USE_DISTRIBUTED=${USE_DISTRIBUTED:-1}
+    export USE_GLOO=${USE_GLOO:-1}
+fi
 export USE_QNNPACK=${USE_QNNPACK:-0}                              # quantized
 export USE_XNNPACK=${USE_XNNPACK:-0}                              # quantized
 # Disable these unless you are going to benchmark them
