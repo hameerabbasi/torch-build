@@ -1,11 +1,12 @@
 /git/
 /.zed/
+/.vscode/
+/**/.DS_Store
 
 
 # pixi environments
 .pixi
 *.egg-info
-pixi.lock
 /last-used-env
 
 # Env File
