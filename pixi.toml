@@ -78,6 +78,7 @@ parameterized = "*"
 libglib = "*"
 pango = "*"
 pillow = "*"
+spin = "*"
 
 [feature.core.target.osx-arm64.dependencies]
 compilers = "*"
