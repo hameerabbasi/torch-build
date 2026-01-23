@@ -79,6 +79,7 @@ libglib = "*"
 pango = "*"
 pillow = "*"
 spin = "*"
+mpi = { version = "*", build = "openmpi" }
 
 [feature.core.target.osx-arm64.dependencies]
 compilers = "*"
