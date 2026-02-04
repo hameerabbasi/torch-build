@@ -27,6 +27,7 @@ python-freethreading = "3.13.*"
 [dependencies]
 python = "3.10.*"
 onnx-ir = "*"
+py-spy = ">=0.4.1,<0.5"
 
 [target.linux-64.dependencies]
 # These three don't have free-threading support
@@ -80,6 +81,7 @@ pango = "*"
 pillow = "*"
 spin = "*"
 mpi = { version = "*", build = "openmpi" }
+uv = ">=0.9.29,<0.10"
 
 [feature.core.target.osx-arm64.dependencies]
 compilers = "*"
