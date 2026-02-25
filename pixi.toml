@@ -24,6 +24,9 @@ scripts = ["./torch-pixi-activate.sh"]
 python = "3.13.*"
 python-freethreading = "3.13.*"
 
+[feature.py313.dependencies]
+python = "3.13.*"
+
 [dependencies]
 python = "3.10.*"
 onnx-ir = "*"
@@ -81,19 +84,20 @@ pango = "*"
 pillow = "*"
 spin = "*"
 mpi = { version = "*", build = "openmpi" }
-uv = ">=0.9.29,<0.10"
+uv = "*"
+pyrefly = "*"
 
 [feature.core.target.osx-arm64.dependencies]
 compilers = "*"
 
 [feature.core.target.linux-64.dependencies]
-gcc = "14.*"
-gxx = "14.*"
+gcc = "15.*"
+gxx = "15.*"
 clang = "*"
 clangxx = "*"
-magma = "*"
+libmagma-devel = "*"
 cuda-driver-dev = "*"
-cuda-version = "12.9.*"
+cuda-version = "13.0.*"
 cudnn = "*"
 conda-gcc-specs = "*"
 cuda-libraries-dev = "*"
@@ -111,5 +115,9 @@ sysroot_linux-64 = ">=2.17"
 default = ["default", "core"]
 freethreading = { features = [
     "freethreading",
+    "core",
+], no-default-feature = true }
+py313 = { features = [
+    "py313",
     "core",
 ], no-default-feature = true }
