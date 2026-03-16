@@ -111,8 +111,15 @@ mkl-include = "*"
 nccl = "*"
 sysroot_linux-64 = ">=2.17"
 
+[feature.no-cuda.activation.env]
+USE_CUDA = "0"
+
 [environments]
 default = ["default", "core"]
+no-cuda = { features = [
+    "no-cuda",
+    "core",
+], no-default-feature = true }
 freethreading = { features = [
     "freethreading",
     "core",
