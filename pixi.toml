@@ -33,11 +33,12 @@ onnx-ir = "*"
 py-spy = ">=0.4.1,<0.5"
 
 [target.linux-64.dependencies]
-# These three don't have free-threading support
+# These don't have free-threading support
 lldb = "*"
 gdb = "*"
 halide-python = "*"
 z3-solver = "*"
+cuda-gdb = "*"
 
 [feature.core.dependencies]
 pip = "*"
@@ -86,6 +87,7 @@ spin = "*"
 mpi = { version = "*", build = "openmpi" }
 uv = "*"
 pyrefly = "*"
+pthread-stubs = "*"
 
 [feature.core.target.osx-arm64.dependencies]
 compilers = "*"
@@ -97,12 +99,11 @@ clang = "*"
 clangxx = "*"
 libmagma-devel = "*"
 cuda-driver-dev = "*"
-cuda-version = "13.0.*"
+cuda-version = "13.*"
 cudnn = "*"
 conda-gcc-specs = "*"
 cuda-libraries-dev = "*"
 cuda-nvcc = "*"
-cuda-gdb = "*"
 cuda-nvtx-dev = "*"
 cuda-nvml-dev = "*"
 cuda-cupti-dev = "*"
