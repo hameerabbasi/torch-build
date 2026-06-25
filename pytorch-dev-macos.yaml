@@ -3,11 +3,22 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - python=3.9
+  - python=3.10
   - pip
   - cpython
   - compilers
-  - clang=18
+  # We don't have to support nvcc, so get the most modern Clang possible.
+  - clang
+  - clangxx
+  - lldb
+
+  # Speedup linking
+  - lld
+
+  # Explicitly override BLAS to use MacOS's Accelerate framework.  Without this, Conda
+  # defaults to installing OpenBLAS, which can (in some cases) break detection of
+  # features in Accelerate, which PyTorch preferentially builds against.
+  - libblas=*=*_newaccelerate
 
   # PyTorch dependencies
   - ccache
@@ -16,7 +27,7 @@ dependencies:
   - ninja
   - packaging
   - pyyaml
-  - scikit-build
+  - scikit-build-core
   - setuptools
   - types-dataclasses
   - typing
@@ -27,9 +38,13 @@ dependencies:
   - numpy
   - expecttest
   - hypothesis
+  - lintrunner
   - scipy
   - psutil
   - pytest
+  - parameterized
+  - pyrefly
+  - uv
 
   # Development utilities
   - ghstack
@@ -49,8 +64,7 @@ dependencies:
   - optree
   - tabulate
   - networkx
-  - pip:
-    - z3-solver
+  - z3-solver
 
   # triton dependencies, if building from source
   - zlib
