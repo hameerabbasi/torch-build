@@ -2,14 +2,11 @@
 authors = ["Hameer Abbasi <2190658+hameerabbasi@users.noreply.github.com>"]
 channels = ["conda-forge"]
 name = "pixi-pytorch-dev"
-platforms = ["linux-64", "osx-arm64"]
+platforms = [
+    { platform = "linux-64", cuda = "13.0", glibc = "2.28", linux = "5.17" },
+    { platform = "osx-arm64", macos = "15.0" },
+]
 version = "0.1.0"
-
-[feature.core.system-requirements]
-macos = "15.0"
-cuda = "13.0"
-linux = "5.17"
-libc = { family="glibc", version="2.28" }
 
 [feature.core.tasks]
 build-core = { cmd = "./pixi-launch.sh ./pytorch-build.sh", cwd = "." }
@@ -27,8 +24,8 @@ PYTORCH_PIXI_BUILD = "1"
 scripts = ["./torch-pixi-activate.sh"]
 
 [feature.freethreading.dependencies]
-python = "3.13.*"
-python-freethreading = "3.13.*"
+python = "3.14.*"
+python-freethreading = "3.14.*"
 
 [feature.py313.dependencies]
 python = "3.13.*"
