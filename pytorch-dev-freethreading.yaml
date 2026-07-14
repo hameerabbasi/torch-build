@@ -16,12 +16,16 @@ dependencies:
   - gdb
   # Certain features (like cpp_wrapper for inductor) can be tested in clang as
   # well.  nvcc currently supports up to clang 21.
-  - clang<21
-  - clangxx<21
+  - clang<22
+  - clangxx<22
   - lldb
 
   # Speedup linking
   - mold
+
+  # Explicitly override BLAS to use BLIS, which is significantly faster on AMD platforms
+  # (which represent all of our dev servers).
+  - libblas=*=*_blis
 
   # CUDA requirements, even if using system CUDA
   - libmagma-devel
@@ -43,8 +47,6 @@ dependencies:
   - ccache
   - cmake
   - fsspec
-  - mkl
-  - mkl-include
   - ninja
   - packaging
   - pyyaml
