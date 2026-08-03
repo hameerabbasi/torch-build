@@ -92,6 +92,7 @@ uv = "*"
 pyrefly = "*"
 pthread-stubs = "*"
 lld = "*"
+clang-scan-deps = "*"
 
 [feature.core.target.osx-arm64.dependencies]
 c-compiler = "*"
