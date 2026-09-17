@@ -92,6 +92,7 @@ uv = "*"
 pyrefly = "*"
 pthread-stubs = "*"
 lld = "*"
+mold = "*"
 clang-scan-deps = "*"
 
 [feature.core.target.osx-arm64.dependencies]
