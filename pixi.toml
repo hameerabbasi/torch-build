@@ -51,7 +51,7 @@ ninja = "*"
 numpy = "*"
 packaging = "*"
 pkg-config = "*"
-libuv = "*"
+libuv="1.51.*"
 pyyaml = "*"
 requests = "*"
 six = "*"
@@ -91,8 +91,6 @@ mpi = { version = "*", build = "openmpi" }
 uv = "*"
 pyrefly = "*"
 pthread-stubs = "*"
-lld = "*"
-mold = "*"
 clang-scan-deps = "*"
 
 [feature.core.target.osx-arm64.dependencies]
@@ -116,6 +114,8 @@ cuda-nvtx-dev = "*"
 cuda-nvml-dev = "*"
 cuda-cupti-dev = "*"
 nccl = "*"
+mold = "*"
+lld = "*"
 sysroot_linux-64 = ">=2.17"
 libblas = { version = "*", build = "*_blis" }
 
