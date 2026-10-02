@@ -33,7 +33,6 @@ python = "3.13.*"
 [dependencies]
 python = "3.11.*"
 onnx-ir = "*"
-py-spy = ">=0.4.1,<0.5"
 
 [target.linux-64.dependencies]
 # These don't have free-threading support
@@ -53,6 +52,7 @@ packaging = "*"
 pkg-config = "*"
 libuv="1.51.*"
 pyyaml = "*"
+py-spy = ">=0.4.1,<0.5"
 requests = "*"
 six = "*"
 typing-extensions = ">=4.10.0"
